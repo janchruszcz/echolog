@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_04_160246) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_04_174728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -46,7 +46,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_04_160246) do
   end
 
   create_table "status_changes", force: :cascade do |t|
-    t.integer "from_status", null: false
+    t.integer "from_status"
     t.integer "to_status", null: false
     t.bigint "project_id", null: false
     t.bigint "user_id", null: false

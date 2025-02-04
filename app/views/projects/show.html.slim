@@ -20,4 +20,4 @@
       = form_with(model: [@project, @comment], class: 'mt-4') do |f|
         .space-y-4
           = f.text_area :content, rows: 4, class: 'w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500'
-          = f.submit 'Post Comment', class: 'bg-green-500 text-white px-5 py-2 rounded-lg hover:bg-green-600 transition-colors duration-300'
+          = f.submit 'Post', class: 'bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300'

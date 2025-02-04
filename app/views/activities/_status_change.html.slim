@@ -1,5 +1,5 @@
-.text-gray-700.text-sm
+.text-gray-700
   | Changed status from 
-  span.font-medium.text-blue-600 = activity.trackable.from_status || 'none'
+  span.font-medium.text-blue-600 = activity.trackable.from_status.nil? ? 'none' : Project.statuses.key(activity.trackable.from_status)&.humanize
   |  to 
-  span.font-medium.text-green-600 = activity.trackable.to_status || 'none'
+  span.font-medium.text-green-600 = Project.statuses.key(activity.trackable.to_status)&.humanize
