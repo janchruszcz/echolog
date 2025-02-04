@@ -8,7 +8,7 @@
       = form_with(model: @project, local: true, class: 'flex items-center space-x-4') do |f|
         .flex-grow
           = f.select :status, Project.statuses.keys.map { |s| [s.humanize, s] }, {}, class: 'mt-1 block w-full bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500'
-        = f.submit 'Update Status', class: 'bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300'
+        = f.submit 'Update', class: 'bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300'
   
   #activity_feed.space-y-6
     h2.text-2xl.font-semibold.text-gray-800 Activity
