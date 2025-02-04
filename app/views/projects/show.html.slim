@@ -1,0 +1,23 @@
+.space-y-12
+  .bg-white.shadow-lg.rounded-lg.p-6
+    .flex.justify-between.items-center
+      h1.text-3xl.font-bold.text-gray-800 = @project.name
+      = link_to 'Edit', edit_project_path(@project), class: 'text-blue-500 hover:text-blue-600 font-semibold'
+    
+    .mt-6
+      = form_with(model: @project, local: true, class: 'flex items-center space-x-4') do |f|
+        .flex-grow
+          = f.select :status, Project.statuses.keys.map { |s| [s.humanize, s] }, {}, class: 'mt-1 block w-full bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500'
+        = f.submit 'Update Status', class: 'bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300'
+  
+  #activity_feed.space-y-6
+    h2.text-2xl.font-semibold.text-gray-800 Activity
+    = turbo_frame_tag "activities" do
+      = render partial: 'activities/activity', collection: @activities
+  
+    .bg-white.shadow-md.rounded-lg.p-6.mt-8
+      h3.text-xl.font-semibold.text-gray-800 Add Comment
+      = form_with(model: [@project, @comment], class: 'mt-4') do |f|
+        .space-y-4
+          = f.text_area :content, rows: 4, class: 'w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500'
+          = f.submit 'Post Comment', class: 'bg-green-500 text-white px-5 py-2 rounded-lg hover:bg-green-600 transition-colors duration-300'

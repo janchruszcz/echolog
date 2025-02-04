@@ -1,0 +1,13 @@
+.bg-white.shadow-md.rounded-lg.p-6
+  h2.text-xl.font-semibold.text-gray-800.hover:text-blue-500
+    = link_to project.name, project_path(project), class: 'block'
+  .mt-4
+    .text-sm.text-gray-500
+      | Status:
+    .mt-1
+      span class="px-3 py-1 rounded-full text-xs font-medium #{project_status_color(project.status)}"
+        = project.status.humanize
+  .mt-4.text-sm.text-gray-500
+    | Last updated 
+    = time_ago_in_words(project.updated_at)
+    |  ago

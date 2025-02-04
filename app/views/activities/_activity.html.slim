@@ -1,0 +1,11 @@
+.bg-white.shadow-md.rounded-lg.p-4
+  .flex.items-start.space-x-4
+    .flex-shrink-0
+      .w-12.h-12.rounded-full.bg-gray-200.flex.items-center.justify-center
+        span.text-gray-500.font-semibold = activity.user.email.first.upcase
+    .flex-grow
+      .flex.items-center.space-x-2
+        span.font-medium.text-gray-800 = activity.user.email
+        span.text-gray-500.text-xs = time_ago_in_words(activity.created_at)
+      .mt-2.text-gray-600
+        = render "activities/#{activity.trackable_type.underscore}", activity: activity
